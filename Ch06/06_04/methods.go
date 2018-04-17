@@ -8,6 +8,32 @@ type Dog struct {
 	Sound string
 }
 
-func main() {
+func (d Dog) Speak() {
+	fmt.Println(d.Sound)
+}
 
+func (d Dog) SpeakThreeTimes() {
+	d.Sound = fmt.Sprintf("%v! %v! %v!", d.Sound, d.Sound, d.Sound)
+	fmt.Println(d.Sound)
+}
+
+func (d *Dog) SpeakThreeTimesPointer() {
+	d.Sound = fmt.Sprintf("%v! %v! %v!", d.Sound, d.Sound, d.Sound)
+	fmt.Println(d.Sound)
+}
+
+func main() {
+	poodle := Dog{"Poodle", 37, "Woof"}
+	fmt.Println(poodle)
+	poodle.Speak()
+
+	poodle.Sound = "Arf"
+	poodle.Speak()
+
+	poodle.SpeakThreeTimes()
+	//d is recived as value not pointer
+	poodle.SpeakThreeTimes()
+
+	poodle.SpeakThreeTimesPointer()
+	poodle.SpeakThreeTimesPointer()
 }
