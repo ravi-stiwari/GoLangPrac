@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-var isConnected bool = false
+var isConnected = false
 
 func main() {
 	fmt.Printf("Connection open: %v\n", isConnected)
