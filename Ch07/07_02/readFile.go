@@ -7,8 +7,13 @@ import (
 
 func main() {
 
-	fileName := "./hello.txt"	
+	fileName := "./hello.txt"
 
+	content, err := ioutil.ReadFile(fileName)
+	checkError(err)
+
+	result := string(content)
+	fmt.Println("Read from file", result)
 }
 
 func checkError(err error) {
